@@ -17,15 +17,15 @@
  * under the License.
  */
 
-package io.github.protocol.sms;
+package io.github.protocol.sms.ui.button;
 
-import javax.swing.JFrame;
-import java.awt.HeadlessException;
+import javax.swing.JButton;
 
-public class SmsClientSimulatorFrame extends JFrame {
+public class MessageButton extends JButton {
+    public MessageButton() {
+        super("发送数据");
+        this.addActionListener(e -> {
 
-    public SmsClientSimulatorFrame() throws HeadlessException {
-        this.setTitle("Sms Client Simulator");
-        this.setSize(1200, 800);
+        });
     }
 }

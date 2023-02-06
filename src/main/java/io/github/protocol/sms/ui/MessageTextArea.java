@@ -17,32 +17,15 @@
  * under the License.
  */
 
-package io.github.protocol.sms;
+package io.github.protocol.sms.ui;
 
-import com.formdev.flatlaf.FlatDarculaLaf;
-import io.github.protocol.sms.ui.SmsClientSimulatorFrame;
 
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.JTextArea;
 
-public class Main {
+public class MessageTextArea extends JTextArea {
 
-    private static void createAndShowGUI() {
-        JFrame.setDefaultLookAndFeelDecorated(true);
-
-        JFrame frame = new SmsClientSimulatorFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+    public MessageTextArea() {
+        this.setRows(15);
+        this.setLineWrap(true);
     }
-
-    public static void main(String[] args) throws UnsupportedLookAndFeelException {
-        UIManager.setLookAndFeel(new FlatDarculaLaf());
-        SwingUtilities.invokeLater(Main::createAndShowGUI);
-    }
-
 }
