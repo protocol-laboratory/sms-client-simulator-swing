@@ -17,32 +17,20 @@
  * under the License.
  */
 
-package io.github.protocol.sms;
+package io.github.protocol.sms.ui.button;
 
-import com.formdev.flatlaf.FlatDarculaLaf;
 import io.github.protocol.sms.ui.SmsClientSimulatorFrame;
 
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 
-public class Main {
 
-    private static void createAndShowGUI() {
-        JFrame.setDefaultLookAndFeelDecorated(true);
+public class ConnectButton extends JButton {
 
-        JFrame frame = new SmsClientSimulatorFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+    public ConnectButton(final SmsClientSimulatorFrame smsSimulator) {
+        super("连接服务端");
+        this.addActionListener(e -> {
+            JTextField ipTextField = smsSimulator.getIpTextField();
+        });
     }
-
-    public static void main(String[] args) throws UnsupportedLookAndFeelException {
-        UIManager.setLookAndFeel(new FlatDarculaLaf());
-        SwingUtilities.invokeLater(Main::createAndShowGUI);
-    }
-
 }

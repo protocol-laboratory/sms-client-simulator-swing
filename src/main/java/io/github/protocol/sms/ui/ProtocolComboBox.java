@@ -17,32 +17,19 @@
  * under the License.
  */
 
-package io.github.protocol.sms;
+package io.github.protocol.sms.ui;
 
-import com.formdev.flatlaf.FlatDarculaLaf;
-import io.github.protocol.sms.ui.SmsClientSimulatorFrame;
 
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.JComboBox;
 
-public class Main {
+public class ProtocolComboBox extends JComboBox {
 
-    private static void createAndShowGUI() {
-        JFrame.setDefaultLookAndFeelDecorated(true);
 
-        JFrame frame = new SmsClientSimulatorFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    String[] strArray = { "SMPPv3.4" };
 
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+    public ProtocolComboBox() {
+        for (String item : strArray) {
+            this.addItem(item);
+        }
     }
-
-    public static void main(String[] args) throws UnsupportedLookAndFeelException {
-        UIManager.setLookAndFeel(new FlatDarculaLaf());
-        SwingUtilities.invokeLater(Main::createAndShowGUI);
-    }
-
 }
