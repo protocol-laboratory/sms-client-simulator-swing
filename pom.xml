@@ -27,7 +27,7 @@
 
     <groupId>io.github.protocol-laboratory</groupId>
     <artifactId>sms-client-simulator</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -37,6 +37,7 @@
         <flatlaf.version>3.0</flatlaf.version>
         <log4j.version>2.19.0</log4j.version>
         <lombok.version>1.18.26</lombok.version>
+        <sms-client.version>0.0.1</sms-client.version>
         <!-- plugin -->
         <assembly-plugin.version>3.4.2</assembly-plugin.version>
         <compiler-plugin.version>3.10.1</compiler-plugin.version>
@@ -55,6 +56,31 @@
             <groupId>com.formdev</groupId>
             <artifactId>flatlaf</artifactId>
             <version>${flatlaf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.protocol-laboratory</groupId>
+            <artifactId>sms-client-cmpp</artifactId>
+            <version>${sms-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.protocol-laboratory</groupId>
+            <artifactId>sms-client-cngp</artifactId>
+            <version>${sms-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.protocol-laboratory</groupId>
+            <artifactId>sms-client-sgip</artifactId>
+            <version>${sms-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.protocol-laboratory</groupId>
+            <artifactId>sms-client-smgp</artifactId>
+            <version>${sms-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.protocol-laboratory</groupId>
+            <artifactId>sms-client-smpp</artifactId>
+            <version>${sms-client.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -106,6 +132,30 @@
                     <execution>
                         <goals>
                             <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>${assembly-plugin.version}</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>io.github.protocol.sms.Main</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
                         </goals>
                     </execution>
                 </executions>
